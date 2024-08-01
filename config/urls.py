@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 admin.site.site_header = "Polls Administration"
 admin.site.site_title = "Polls Admin Portal"
@@ -24,4 +25,4 @@ admin.site.index_title = "Welcome to Polls Administration Portal"
 urlpatterns = [
     path("polls/", include("polls.urls")),
     path('admin/', admin.site.urls),
-]
+] + debug_toolbar_urls()
